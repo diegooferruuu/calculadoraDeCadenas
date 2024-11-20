@@ -7,5 +7,5 @@ const div = document.querySelector("#resultado-div");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  div.innerHTML = "<p>" + calcular(cadena) + "</p>";
+  div.innerHTML = "<p>" + calcular(cadena.value) + "</p>";
 });
