@@ -16,7 +16,7 @@ function calcular(cadena) {
     return cadena
         .split(delimitadoresRegex)
         .map(Number)
-        .filter((n) => !isNaN(n) && n <= 1000)
+        .filter((number) => !isNaN(number) && number <= 1000)
         .reduce((acc, curr) => acc + curr, 0);
 }
 
