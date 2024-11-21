@@ -23,5 +23,17 @@ describe("Calculadora", () => {
         cy.get("#calcular-button").click();
         cy.get("#resultado-div").should("contain", "6");
       });
+      it("Shows 17", () => {
+        cy.visit("/");
+        cy.get("#cadena").type("//[;] 6;7;4");
+        cy.get("#calcular-button").click();
+        cy.get("#resultado-div").should("contain", "17");
+      });
+      it("Shows 12", () => {
+        cy.visit("/");
+        cy.get("#cadena").type("//[;] 6,3-2;1");
+        cy.get("#calcular-button").click();
+        cy.get("#resultado-div").should("contain", "12");
+      });
   });
   

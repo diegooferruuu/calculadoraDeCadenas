@@ -13,4 +13,10 @@ describe("Calcular", () => {
   it("deberia devolver 6", () => {
     expect(calcular('1-2,3')).toEqual(6);
   });
+  it("deberia devolver 17", () => {
+    expect(calcular('//[;] 6;7;4')).toEqual(17);
+  });
+  it("deberia devolver 12", () => {
+    expect(calcular("//[;] 6,3-2;1")).toEqual(12);
+  });
 });
