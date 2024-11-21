@@ -3,6 +3,7 @@ function calcular(cadena) {
         return 0;
 
     return cadena
+        .replace(/-/g, ',')
         .split(",")
         .map(Number)
         .reduce((acc, curr) => acc + curr, 0); 
