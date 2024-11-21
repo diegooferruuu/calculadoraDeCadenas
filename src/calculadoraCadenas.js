@@ -1,4 +1,4 @@
-function calcular(cadena) {
+function calcularSumaDeCadena(cadena) {
     if (cadena.trim() === '') 
         return 0;
 
@@ -24,4 +24,4 @@ function escapeRegex(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-export default calcular;
+export default calcularSumaDeCadena;
