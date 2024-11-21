@@ -19,4 +19,7 @@ describe("Calcular", () => {
   it("deberia devolver 12", () => {
     expect(calcular("//[;] 6,3-2;1")).toEqual(12);
   });
+  it("deberia devolver 2", () => {
+    expect(calcular("2, 1001")).toEqual(2);
+  });
 });
