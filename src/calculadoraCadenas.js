@@ -17,7 +17,7 @@ function calcularSumaDeCadena(cadena) {
         .split(delimitadoresRegex)
         .map(Number)
         .filter((number) => !isNaN(number) && number <= 1000)
-        .reduce((acc, curr) => acc + curr, 0);
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 }
 
 function escapeRegex(string) {
