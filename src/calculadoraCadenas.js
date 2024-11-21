@@ -1,27 +1,27 @@
-function calcularSumaDeCadena(cadena) {
-    if (cadena.trim() === '') 
+function calcularSumaDeCadena(cadenaEntrada) {
+    if (cadenaEntrada.trim() === '') 
         return 0;
 
     let delimitadores = [',', '-'];
 
-    const customDelimiterMatch = cadena.match(/^\/\/(\[.*?\])+\s+/);
-    if (customDelimiterMatch) {
-        const delimitersArray = [...cadena.matchAll(/\[(.+?)\]/g)].map(match => match[1]);
-        delimitadores.push(...delimitersArray.map(escapeRegex));
-        cadena = cadena.replace(/^\/\/(\[.*?\])+\s+/, '');
+    const coincidenciaDelimitadorPersonalizado = cadenaEntrada.match(/^\/\/(\[.*?\])+\s+/);
+    if (coincidenciaDelimitadorPersonalizado) {
+        const arregloDelimitadores = [...cadenaEntrada.matchAll(/\[(.+?)\]/g)].map(coincidencia => coincidencia[1]);
+        delimitadores.push(...arregloDelimitadores.map(escaparRegex));
+        cadenaEntrada = cadenaEntrada.replace(/^\/\/(\[.*?\])+\s+/, '');
     }
 
-    const delimitadoresRegex = new RegExp(delimitadores.join('|'), 'g');
+    const regexDelimitadores = new RegExp(delimitadores.join('|'), 'g');
 
-    return cadena
-        .split(delimitadoresRegex)
+    return cadenaEntrada
+        .split(regexDelimitadores)
         .map(Number)
-        .filter((number) => !isNaN(number) && number <= 1000)
-        .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        .filter((numero) => !isNaN(numero) && numero <= 1000)
+        .reduce((acumulador, valorActual) => acumulador + valorActual, 0);
 }
 
-function escapeRegex(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function escaparRegex(cadena) {
+    return cadena.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 export default calcularSumaDeCadena;
