@@ -1,14 +1,14 @@
 function calcular(cadena) {
-    if (cadena.trim() === '')
+    if (cadena.trim() === '') 
         return 0;
 
-    let delimitadores = [',', '-']; 
+    let delimitadores = [',', '-'];
 
-    const customDelimiterMatch = cadena.match(/^\/\/\[(.+?)\]\s+/); 
+    const customDelimiterMatch = cadena.match(/^\/\/(\[.*?\])+\s+/);
     if (customDelimiterMatch) {
-        const customDelimiter = customDelimiterMatch[1];
-        delimitadores.push(escapeRegex(customDelimiter)); 
-        cadena = cadena.replace(/^\/\/\[(.+?)\]\s+/, ''); 
+        const delimitersArray = [...cadena.matchAll(/\[(.+?)\]/g)].map(match => match[1]);
+        delimitadores.push(...delimitersArray.map(escapeRegex));
+        cadena = cadena.replace(/^\/\/(\[.*?\])+\s+/, '');
     }
 
     const delimitadoresRegex = new RegExp(delimitadores.join('|'), 'g');

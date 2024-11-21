@@ -22,4 +22,11 @@ describe("Calcular", () => {
   it("deberia devolver 2", () => {
     expect(calcular("2, 1001")).toEqual(2);
   });
+  it("deberia devolver 22", () => {
+    expect(calcular("//[*][%] 1*2%3,7-9")).toEqual(22);
+  });
+  it("deberia devolver 25", () => {
+    expect(calcular("//[*][%][+] 1*2%3,7-9+3,1001")).toEqual(25);
+  });
 });
+

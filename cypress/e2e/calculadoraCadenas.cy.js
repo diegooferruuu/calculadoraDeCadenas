@@ -41,5 +41,17 @@ describe("Calculadora", () => {
         cy.get("#calcular-button").click();
         cy.get("#resultado-div").should("contain", "2");
       });
+      it("Shows 22", () => {
+        cy.visit("/");
+        cy.get("#cadena").type("//[*][%] 1*2%3,7-9");
+        cy.get("#calcular-button").click();
+        cy.get("#resultado-div").should("contain", "22");
+      });
+      it("Shows 25", () => {
+        cy.visit("/");
+        cy.get("#cadena").type("//[*][%][+] 1*2%3,7-9+3,1001");
+        cy.get("#calcular-button").click();
+        cy.get("#resultado-div").should("contain", "25");
+      });
   });
   
